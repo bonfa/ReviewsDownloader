@@ -3,18 +3,18 @@ package fbonfadelli.it.touradvisor.reviews
 import fbonfadelli.it.touradvisor.reviews.provider.ReviewProvider
 import fbonfadelli.it.touradvisor.reviews.provider.Reviews
 
-class ReviewsPresenter(private val reviewsView: ReviewsView, val reviewProvider: ReviewProvider) {
+class ReviewsPresenter(private val reviewsView: ReviewsView, val reviewProvider: ReviewProvider) : ReviewProviderCallback {
     fun onResume() {
         reviewsView.showLoading()
-        reviewProvider.getReviews()
+        reviewProvider.getReviews(this)
     }
 
-    fun onReviews(reviews: Reviews) {
+    override fun onReviews(reviews: Reviews) {
         reviewsView.showReviews(reviews)
         reviewsView.hideLoading()
     }
 
-    fun oNoReviews() {
+    override fun oNoReviews() {
         reviewsView.showNoReviews()
         reviewsView.hideLoading()
     }
