@@ -1,9 +1,11 @@
-package fbonfadelli.it.touradvisor
+package fbonfadelli.it.touradvisor.main
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import fbonfadelli.it.touradvisor.R
+import fbonfadelli.it.touradvisor.ReviewsActivity
 
 class MainActivity : AppCompatActivity(), MainView {
 

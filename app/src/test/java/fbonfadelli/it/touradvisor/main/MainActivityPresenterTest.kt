@@ -1,4 +1,4 @@
-package fbonfadelli.it.touradvisor
+package fbonfadelli.it.touradvisor.main
 
 import org.junit.Test
 import org.mockito.Mockito.mock
