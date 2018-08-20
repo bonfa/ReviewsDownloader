@@ -2,6 +2,7 @@ package fbonfadelli.it.touradvisor.reviews
 
 import fbonfadelli.it.touradvisor.reviews.provider.ReviewProvider
 import fbonfadelli.it.touradvisor.reviews.provider.Reviews
+import fbonfadelli.it.touradvisor.util.expectedReviews
 import org.junit.Test
 import org.mockito.Mockito
 import org.mockito.Mockito.mock
@@ -24,7 +25,7 @@ class ReviewsPresenterTest {
 
     @Test
     fun showTheReviews() {
-        val reviews = Reviews()
+        val reviews = expectedReviews()
 
         reviewsPresenter.onReviews(reviews)
 

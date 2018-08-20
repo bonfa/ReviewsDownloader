@@ -17,7 +17,13 @@ class ReviewsActivity : AppCompatActivity() /*add implementation of the view*/ {
     }
 
     private fun initPresenter() {
-//        reviewsPresenter = ReviewsPresenter(this)
+//        reviewsPresenter = ReviewsPresenter(
+//                this,
+//                ReviewRetriever(
+//                        NetworkReviewsProvider(),
+//                        NetworkReviewsAdapter()
+//                )
+//        )
     }
 
     private fun bindView() {

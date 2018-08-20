@@ -2,15 +2,21 @@ package fbonfadelli.it.touradvisor.reviews.provider
 
 import retrofit2.Call
 
-class RetrofitReviewsProvider(private val reviewService: RetrofitReviewsService) {
+interface NetworkReviewsProvider {
+    fun getReviews(count: Int, page: Int): NetworkReviews
+    fun stop()
+}
+
+class RetrofitReviewsProvider(private val reviewService: RetrofitReviewsService) : NetworkReviewsProvider {
 
     private var call: Call<NetworkReviews>? = null
 
-    fun getReviews(count: Int, page: Int): NetworkReviews? {
+    override fun getReviews(count: Int, page: Int): NetworkReviews {
         call = reviewService.get(count, page)
 
         try {
-            return call!!.execute().body();
+            val body = call!!.execute().body()
+            return if (body != null) body else NetworkReviews()
         }
         catch (e: Exception) {
             if (call!!.isCanceled) {
@@ -22,7 +28,7 @@ class RetrofitReviewsProvider(private val reviewService: RetrofitReviewsService)
         }
     }
 
-    fun stop() {
+    override fun stop() {
         call?.cancel()
     }
 }

@@ -1,6 +1,7 @@
 package fbonfadelli.it.touradvisor.reviews.provider
 
-import fbonfadelli.it.touradvisor.loader.StubbedReviewsLoader
+import fbonfadelli.it.touradvisor.util.StubbedReviewsLoader
+import fbonfadelli.it.touradvisor.util.expectedNetworkReviews
 import okhttp3.Request
 import org.hamcrest.CoreMatchers
 import org.junit.Assert.assertThat
@@ -18,26 +19,7 @@ class RetrofitReviewsProviderTest {
     fun getReviews() {
         val reviews = retrofitReviewsProvider.getReviews(0, 5)
 
-        assertThat(reviews, CoreMatchers.`is`(expectedReviews()))
-    }
-
-    private fun expectedReviews(): NetworkReviews {
-        val networkReviews = NetworkReviews()
-        networkReviews.totalReviewsComments = 549
-        val firstReview = NetworkReviews.NetworkReview()
-        firstReview.id = 3452235
-        firstReview.rating = 5.0
-        firstReview.title = "A Great Insight into the evolution of the Airport"
-        firstReview.message = "This was a very educational tour of Templehoff. We saw lots of different sides of the airport. The tour guide was very knowledgable and helpful. We then walked out onto the Runway. A great place to be"
-        firstReview.author = "Stefan – United Kingdom"
-        firstReview.foreignLanguage = false
-        firstReview.date = "August 20, 2018"
-        firstReview.languageCode = "en"
-        firstReview.travelerType = "family_old"
-        firstReview.reviewerName = "Stefan"
-        firstReview.reviewerCountry = "United Kingdom"
-        networkReviews.reviews = mutableListOf(firstReview).toList()
-        return networkReviews
+        assertThat(reviews, CoreMatchers.`is`(expectedNetworkReviews()))
     }
 
     private inner class RetrofitReviewsServiceStub internal constructor() : RetrofitReviewsService {

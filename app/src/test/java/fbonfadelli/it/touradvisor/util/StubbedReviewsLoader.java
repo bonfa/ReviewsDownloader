@@ -1,4 +1,4 @@
-package fbonfadelli.it.touradvisor.loader;
+package fbonfadelli.it.touradvisor.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
