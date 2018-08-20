@@ -1,4 +1,4 @@
-package fbonfadelli.it.touradvisor.reviews
+package fbonfadelli.it.touradvisor.reviews.provider
 
 interface ReviewProvider {
     fun getReviews()

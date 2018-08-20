@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import fbonfadelli.it.touradvisor.reviews.NetworkReviews;
+import fbonfadelli.it.touradvisor.reviews.provider.NetworkReviews;
 
 import static junit.framework.Assert.fail;
 

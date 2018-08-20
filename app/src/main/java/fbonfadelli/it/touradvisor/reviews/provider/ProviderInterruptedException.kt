@@ -1,3 +1,3 @@
-package fbonfadelli.it.touradvisor.reviews
+package fbonfadelli.it.touradvisor.reviews.provider
 
 class ProviderInterruptedException(message: String) : RuntimeException(message)

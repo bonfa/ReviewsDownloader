@@ -1,4 +1,4 @@
-package fbonfadelli.it.touradvisor.reviews
+package fbonfadelli.it.touradvisor.reviews.provider
 
 import retrofit2.Call
 import retrofit2.http.GET

@@ -1,5 +1,7 @@
 package fbonfadelli.it.touradvisor.reviews
 
+import fbonfadelli.it.touradvisor.reviews.provider.ReviewProvider
+import fbonfadelli.it.touradvisor.reviews.provider.Reviews
 import org.junit.Test
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify

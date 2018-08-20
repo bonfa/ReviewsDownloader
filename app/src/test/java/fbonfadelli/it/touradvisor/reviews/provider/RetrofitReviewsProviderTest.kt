@@ -1,4 +1,4 @@
-package fbonfadelli.it.touradvisor.reviews
+package fbonfadelli.it.touradvisor.reviews.provider
 
 import fbonfadelli.it.touradvisor.loader.StubbedReviewsLoader
 import okhttp3.Request
