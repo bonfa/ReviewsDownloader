@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import fbonfadelli.it.touradvisor.R
-import fbonfadelli.it.touradvisor.ReviewsActivity
+import fbonfadelli.it.touradvisor.reviews.ReviewsActivity
 
 class MainActivity : AppCompatActivity(), MainView {
 
