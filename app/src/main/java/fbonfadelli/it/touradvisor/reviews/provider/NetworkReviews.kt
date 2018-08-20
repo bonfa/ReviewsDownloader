@@ -10,8 +10,6 @@ class NetworkReviews {
     @SerializedName("data")
     var reviews: List<NetworkReview> = emptyList()
 
-
-
     class NetworkReview {
         @SerializedName("review_id")
         var id: Long = 0L
