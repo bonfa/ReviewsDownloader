@@ -1,12 +1,13 @@
 package fbonfadelli.it.touradvisor.reviews
 
 import org.junit.Test
-import org.mockito.Mockito
+import org.mockito.Mockito.mock
+import org.mockito.Mockito.verify
 
 class ReviewsPresenterTest {
 
-    private val reviewsView: ReviewsView = Mockito.mock(ReviewsView::class.java)
-    private val reviewProvider = Mockito.mock(ReviewProvider::class.java)
+    private val reviewsView: ReviewsView = mock(ReviewsView::class.java)
+    private val reviewProvider = mock(ReviewProvider::class.java)
 
     private val reviewsPresenter = ReviewsPresenter(reviewsView, reviewProvider)
 
@@ -14,8 +15,8 @@ class ReviewsPresenterTest {
     fun askForTheReviews() {
         reviewsPresenter.onResume()
 
-        Mockito.verify(reviewsView).showLoading()
-        Mockito.verify(reviewProvider).getReviews()
+        verify(reviewsView).showLoading()
+        verify(reviewProvider).getReviews()
     }
 
     @Test
@@ -24,15 +25,23 @@ class ReviewsPresenterTest {
 
         reviewsPresenter.onReviews(reviews)
 
-        Mockito.verify(reviewsView).showReviews(reviews)
-        Mockito.verify(reviewsView).hideLoading()
+        verify(reviewsView).showReviews(reviews)
+        verify(reviewsView).hideLoading()
     }
 
     @Test
     fun showNoReviews() {
         reviewsPresenter.oNoReviews()
 
-        Mockito.verify(reviewsView).showNoReviews()
-        Mockito.verify(reviewsView).hideLoading()
+        verify(reviewsView).showNoReviews()
+        verify(reviewsView).hideLoading()
+    }
+
+    @Test
+    fun blockProviderOnPause() {
+        reviewsPresenter.onPause()
+
+        verify(reviewsView).hideLoading()
+        verify(reviewProvider).stop()
     }
 }

@@ -15,4 +15,9 @@ class ReviewsPresenter(private val reviewsView: ReviewsView, val reviewProvider:
         reviewsView.showNoReviews()
         reviewsView.hideLoading()
     }
+
+    fun onPause() {
+        reviewsView.hideLoading()
+        reviewProvider.stop()
+    }
 }
