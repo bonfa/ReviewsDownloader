@@ -15,5 +15,4 @@ class MainActivityPresenterTest {
 
         verify(mainView).showReviews()
     }
-
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TourAdvisor</string>
+    <string name="show_reviews">Show Reviews</string>
 </resources>
