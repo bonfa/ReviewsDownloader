@@ -1,0 +1,20 @@
+{
+  "status": true,
+  "total_reviews_comments": 549,
+  "data": [
+    {
+      "review_id": 3452235,
+      "rating": "5.0",
+      "title": "A Great Insight into the evolution of the Airport",
+      "message": "This was a very educational tour of Templehoff. We saw lots of different sides of the airport. The tour guide was very knowledgable and helpful. We then walked out onto the Runway. A great place to be",
+      "author": "Stefan – United Kingdom",
+      "foreignLanguage": false,
+      "date": "August 20, 2018",
+      "date_unformatted": {},
+      "languageCode": "en",
+      "traveler_type": "family_old",
+      "reviewerName": "Stefan",
+      "reviewerCountry": "United Kingdom"
+    }
+  ]
+}
