@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import fbonfadelli.it.touradvisor.R
 
-class ReviewsActivity : AppCompatActivity(), ReviewsView {
+class ReviewsActivity : AppCompatActivity() /*add implementation of the view*/ {
 
     private lateinit var reviewsPresenter: ReviewsPresenter
 
@@ -17,7 +17,7 @@ class ReviewsActivity : AppCompatActivity(), ReviewsView {
     }
 
     private fun initPresenter() {
-        reviewsPresenter = ReviewsPresenter(this)
+//        reviewsPresenter = ReviewsPresenter(this)
     }
 
     private fun bindView() {
