@@ -15,7 +15,7 @@ class ReviewsPresenterTest {
     private val reviewsPresenter = ReviewsPresenter(reviewsView, reviewProvider)
 
     @Test
-    fun askForTheReviews() {
+    fun askForTheReviewsOnResume() {
         reviewsPresenter.onResume()
 
         verify(reviewsView).showLoading()
