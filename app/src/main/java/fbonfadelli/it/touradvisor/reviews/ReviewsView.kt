@@ -5,4 +5,5 @@ interface ReviewsView {
     fun hideLoading()
 
     fun showReviews(reviews: Reviews)
+    fun showNoReviews()
 }

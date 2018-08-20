@@ -28,4 +28,11 @@ class ReviewsPresenterTest {
         Mockito.verify(reviewsView).hideLoading()
     }
 
+    @Test
+    fun showNoReviews() {
+        reviewsPresenter.oNoReviews()
+
+        Mockito.verify(reviewsView).showNoReviews()
+        Mockito.verify(reviewsView).hideLoading()
+    }
 }

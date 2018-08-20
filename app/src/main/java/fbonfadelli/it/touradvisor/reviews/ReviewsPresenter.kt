@@ -10,4 +10,9 @@ class ReviewsPresenter(private val reviewsView: ReviewsView, val reviewProvider:
         reviewsView.showReviews(reviews)
         reviewsView.hideLoading()
     }
+
+    fun oNoReviews() {
+        reviewsView.showNoReviews()
+        reviewsView.hideLoading()
+    }
 }
