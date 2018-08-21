@@ -47,7 +47,7 @@ class RetrofitReviewsServiceFactory {
 
         private val TIMEOUT_READ = 15
         private val TIMEOUT_WRITE = 15
-        private val TIMEOUT_CONNECT = 15
+        private val TIMEOUT_CONNECT = 30
         private val BASE_URL = "https://www.getyourguide.com/"
     }
 }

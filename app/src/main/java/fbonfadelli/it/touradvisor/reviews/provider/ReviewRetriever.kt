@@ -6,19 +6,23 @@ class ReviewRetriever(private val retrofitReviewsProvider: NetworkReviewsProvide
                       private val networkReviewsAdapter: NetworkReviewsAdapter) : ReviewProvider {
 
     override fun getReviews(reviewProviderCallback: ReviewProviderCallback) {
-        val reviews = networkReviewsAdapter.adapt(
-                retrofitReviewsProvider.getReviews(1, 5)
-        )
-        if (reviews.isPresent()) {
-            reviewProviderCallback.onReviews(reviews)
-        }
-        else {
-            reviewProviderCallback.oNoReviews()
-        }
+        retrofitReviewsProvider.getReviews(5, 0, object : NetworkReviewsProviderCallback {
+            override fun onReviews(reviews: NetworkReviews) {
+                val adaptedReviews = networkReviewsAdapter.adapt(reviews)
+                if (adaptedReviews.isPresent()) {
+                    reviewProviderCallback.onReviews(adaptedReviews)
+                } else {
+                    reviewProviderCallback.oNoReviews()
+                }
+            }
+
+            override fun onError() {
+                reviewProviderCallback.oNoReviews()
+            }
+        })
     }
 
     override fun stop() {
         retrofitReviewsProvider.stop()
     }
-
 }
