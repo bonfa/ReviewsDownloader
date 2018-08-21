@@ -2,8 +2,8 @@ package fbonfadelli.it.touradvisor.reviews.provider
 
 import fbonfadelli.it.touradvisor.reviews.ReviewProviderCallback
 import fbonfadelli.it.touradvisor.util.emptyReviews
-import fbonfadelli.it.touradvisor.util.expectedNetworkReviews
-import fbonfadelli.it.touradvisor.util.expectedReviews
+import fbonfadelli.it.touradvisor.util.aNetworkReview
+import fbonfadelli.it.touradvisor.util.aReview
 import org.junit.Test
 import org.mockito.Mockito.*
 
@@ -15,23 +15,23 @@ class ReviewRetrieverTest {
     @Test
     fun getReviews() {
         `when`(networkReviewsProvider.getReviews(1, 5))
-                .thenReturn(expectedNetworkReviews())
+                .thenReturn(aNetworkReview())
 
-        `when`(networkReviewsAdapter.adapt(expectedNetworkReviews()))
-                .thenReturn(expectedReviews())
+        `when`(networkReviewsAdapter.adapt(aNetworkReview()))
+                .thenReturn(aReview())
 
         val reviewProviderCallback = mock(ReviewProviderCallback::class.java)
         networkReviewProvider.getReviews(reviewProviderCallback)
 
-        verify(reviewProviderCallback).onReviews(expectedReviews())
+        verify(reviewProviderCallback).onReviews(aReview())
     }
 
     @Test
     fun getNoReviews() {
         `when`(networkReviewsProvider.getReviews(1, 5))
-                .thenReturn(expectedNetworkReviews())
+                .thenReturn(aNetworkReview())
 
-        `when`(networkReviewsAdapter.adapt(expectedNetworkReviews()))
+        `when`(networkReviewsAdapter.adapt(aNetworkReview()))
                 .thenReturn(emptyReviews())
 
         val reviewProviderCallback = mock(ReviewProviderCallback::class.java)

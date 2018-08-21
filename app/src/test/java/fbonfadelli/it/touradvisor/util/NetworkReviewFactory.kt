@@ -2,26 +2,58 @@ package fbonfadelli.it.touradvisor.util
 
 import fbonfadelli.it.touradvisor.reviews.provider.NetworkReviews
 
-public fun expectedNetworkReviews(): NetworkReviews {
+fun aNetworkReview(): NetworkReviews {
     val networkReviews = NetworkReviews()
     networkReviews.totalReviewsComments = 549
-    val firstReview = NetworkReviews.NetworkReview()
-    firstReview.id = 3452235
-    firstReview.rating = 5.0
-    firstReview.title = "A Great Insight into the evolution of the Airport"
-    firstReview.message = "This was a very educational tour of Templehoff. We saw lots of different sides of the airport. The tour guide was very knowledgable and helpful. We then walked out onto the Runway. A great place to be"
-    firstReview.author = "Stefan – United Kingdom"
-    firstReview.foreignLanguage = false
-    firstReview.date = "August 20, 2018"
-    firstReview.languageCode = "en"
-    firstReview.travelerType = "family_old"
-        firstReview.reviewerName = "Stefan"
-    firstReview.reviewerCountry = "United Kingdom"
-    networkReviews.reviews = mutableListOf(firstReview).toList()
+    networkReviews.reviews = mutableListOf(createNetworkReview()).toList()
     return networkReviews
 }
 
-public fun emptyNetworkReviews(): NetworkReviews {
+fun someNetworkReviews(): NetworkReviews {
+    val networkReviews = NetworkReviews()
+    networkReviews.totalReviewsComments = 2
+    networkReviews.reviews =
+            mutableListOf(
+                    createNetworkReview(),
+                    createAnotherNetworkReview()
+            )
+                    .toList()
+    return networkReviews
+}
+
+private fun createNetworkReview(): NetworkReviews.NetworkReview {
+    val review = NetworkReviews.NetworkReview()
+    review.id = 3452235
+    review.rating = 5.0
+    review.title = "A Great Insight into the evolution of the Airport"
+    review.message = "This was a very educational tour of Templehoff. We saw lots of different sides of the airport. The tour guide was very knowledgable and helpful. We then walked out onto the Runway. A great place to be"
+    review.author = "Stefan – United Kingdom"
+    review.foreignLanguage = false
+    review.date = "August 20, 2018"
+    review.languageCode = "en"
+    review.travelerType = "family_old"
+    review.reviewerName = "Stefan"
+    review.reviewerCountry = "United Kingdom"
+    return review
+}
+
+fun createAnotherNetworkReview(): NetworkReviews.NetworkReview {
+    val review = NetworkReviews.NetworkReview()
+    review.id = 3425187
+    review.rating = 5.0
+    review.title = ""
+    review.message = "Tres bon guide, plein de joie de vivre et très dynamique. A faire!!"
+    review.author = "Cecile – France"
+    review.foreignLanguage = true
+    review.date = "August 18, 2018"
+    review.languageCode = "fr"
+    review.travelerType = "couple"
+    review.reviewerName = "Cecile"
+    review.reviewerCountry = "France"
+    return review
+}
+
+fun emptyNetworkReviews(): NetworkReviews {
     val networkReviews = NetworkReviews()
     networkReviews.totalReviewsComments = 0
     networkReviews.reviews = emptyList()

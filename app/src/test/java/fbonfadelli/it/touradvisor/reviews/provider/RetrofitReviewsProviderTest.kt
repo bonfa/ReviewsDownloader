@@ -1,7 +1,7 @@
 package fbonfadelli.it.touradvisor.reviews.provider
 
 import fbonfadelli.it.touradvisor.util.StubbedReviewsLoader
-import fbonfadelli.it.touradvisor.util.expectedNetworkReviews
+import fbonfadelli.it.touradvisor.util.aNetworkReview
 import okhttp3.Request
 import org.hamcrest.CoreMatchers
 import org.junit.Assert.assertThat
@@ -19,7 +19,7 @@ class RetrofitReviewsProviderTest {
     fun getReviews() {
         val reviews = retrofitReviewsProvider.getReviews(0, 5)
 
-        assertThat(reviews, CoreMatchers.`is`(expectedNetworkReviews()))
+        assertThat(reviews, CoreMatchers.`is`(aNetworkReview()))
     }
 
     private inner class RetrofitReviewsServiceStub internal constructor() : RetrofitReviewsService {

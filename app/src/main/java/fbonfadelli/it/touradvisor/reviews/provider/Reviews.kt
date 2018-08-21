@@ -5,4 +5,10 @@ data class Reviews(
         private val reviews: List<Review>
 ) {
     fun isPresent(): Boolean = reviews.size > 0
+
+    companion object {
+        fun empty(): Reviews {
+            return Reviews(0, emptyList())
+        }
+    }
 }
