@@ -15,7 +15,7 @@ class NetworkReviews {
         var id: Long = 0L
 
         @SerializedName("rating")
-        var rating: Double = 0.0
+        var rating: String = "0.0"
 
         @SerializedName("title")
         var title: String = ""

@@ -2,4 +2,6 @@
     <string name="app_name">TourAdvisor</string>
     <string name="show_reviews">Show Reviews</string>
     <string name="reviews">Reviews</string>
+    <string name="user_picture">User picture</string>
+    <string name="separator">\-</string>
 </resources>

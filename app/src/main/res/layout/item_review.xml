@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/user_picture"
+        android:src="@mipmap/ic_account_circle_white_48dp"
+        android:textStyle="bold"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/userNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:paddingTop="4dp"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        tools:text="Paolo"/>
+
+    <TextView
+        android:id="@+id/nameCountrySeparatorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="4dp"
+        android:paddingStart="4dp"
+        android:text="@string/separator"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/textColor"
+        app:layout_constraintBaseline_toBaselineOf="@id/userNameTextView"
+        app:layout_constraintStart_toEndOf="@id/userNameTextView"/>
+
+    <TextView
+        android:id="@+id/countryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/textColor"
+        app:layout_constraintBaseline_toBaselineOf="@id/userNameTextView"
+        app:layout_constraintStart_toEndOf="@id/nameCountrySeparatorTextView"
+        tools:text="USA"/>
+
+    <TextView
+        android:id="@+id/typeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/userNameTextView"
+        app:layout_constraintTop_toBottomOf="@id/userNameTextView"
+        tools:text="COUPLE"/>
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        app:layout_constraintStart_toStartOf="@id/typeTextView"
+        app:layout_constraintTop_toBottomOf="@id/typeTextView"
+        tools:text="August 2018"/>
+
+    <TextView
+        android:id="@+id/ratingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rating_background"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        tools:text="5.0"/>
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ratingTextView"
+        app:layout_constraintEnd_toStartOf="@+id/ratingTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingEnd="8dp"
+        tools:text="A Great Insight into the evolution of the Airport"/>
+
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/ratingTextView"
+        tools:text="This was a very educational tour of Templehoff. We saw lots of different sides of the airport. The tour guide was very knowledgable and helpful. We then walked out onto the Runway. A great place to be"
+        />
+
+
+</android.support.constraint.ConstraintLayout>
