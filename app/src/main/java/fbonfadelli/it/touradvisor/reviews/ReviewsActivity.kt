@@ -14,6 +14,10 @@ class ReviewsActivity : AppCompatActivity(), ReviewsView {
     private val LOG: String = "ReviewsActivity"
 
     private lateinit var reviewsPresenter: ReviewsPresenter
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var emptyView: LinearLayout
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ReviewsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,7 @@ class ReviewsActivity : AppCompatActivity(), ReviewsView {
         initPresenter()
         bindView()
     }
+
 
     private fun initPresenter() {
         reviewsPresenter = ReviewsPresenter(
@@ -34,11 +39,6 @@ class ReviewsActivity : AppCompatActivity(), ReviewsView {
                 )
         )
     }
-
-    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
-    private lateinit var emptyView: LinearLayout
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: ReviewsAdapter
 
     private fun bindView() {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
