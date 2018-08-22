@@ -18,7 +18,7 @@ class ReviewsPresenterTest {
         reviewsPresenter.onResume()
 
         verify(reviewsView).showLoading()
-        verify(reviewProvider).getReviews(reviewsPresenter)
+        verify(reviewProvider).getReviews(this.reviewStrategy, reviewsPresenter)
     }
 
     @Test

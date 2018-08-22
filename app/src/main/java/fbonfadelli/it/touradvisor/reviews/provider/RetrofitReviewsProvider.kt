@@ -5,7 +5,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 interface NetworkReviewsProvider {
-    fun getReviews(count: Int, page: Int, callback: NetworkReviewsProviderCallback)
+    fun getReviews(count: Int, page: Int, reviewStrategy: ReviewProvider.Strategy, callback: NetworkReviewsProviderCallback)
     fun stop()
 }
 
@@ -18,9 +18,10 @@ class RetrofitReviewsProvider(private val reviewService: RetrofitReviewsService)
     private lateinit var callback: NetworkReviewsProviderCallback
     private lateinit var call: Call<NetworkReviews>
 
-    override fun getReviews(count: Int, page: Int, callback: NetworkReviewsProviderCallback) {
+    override fun getReviews(count: Int, page: Int, reviewStrategy: ReviewProvider.Strategy, callback: NetworkReviewsProviderCallback) {
         this.callback = callback
-        this.call = reviewService.get(count, page)
+        val direction = if (reviewStrategy == ReviewProvider.Strategy.RATING_STRATEGY_ASC) "asc" else "desc"
+        this.call = reviewService.get(count, page, "rating", direction)
         this.call.enqueue(this)
     }
 

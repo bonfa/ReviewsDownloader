@@ -9,7 +9,7 @@ TODO
 
 
 Parametri di ricerca
-[] filtri
 [] ordinamenti
-[] paginazione
+[-] filtri
+[-] paginazione
 [x] numero di recensioni

@@ -5,44 +5,44 @@ import com.google.gson.annotations.SerializedName
 class NetworkReviews {
 
     @SerializedName("total_reviews_comments")
-    var totalReviewsComments: Int = 0
+    var totalReviewsComments: Int? = 0
 
     @SerializedName("data")
-    var reviews: List<NetworkReview> = emptyList()
+    var reviews: List<NetworkReview>? = emptyList()
 
     class NetworkReview {
         @SerializedName("review_id")
-        var id: Long = 0L
+        var id: Long? = 0L
 
         @SerializedName("rating")
-        var rating: String = "0.0"
+        var rating: String? = "0.0"
 
         @SerializedName("title")
-        var title: String = ""
+        var title: String? = ""
 
         @SerializedName("message")
-        var message: String = ""
+        var message: String? = ""
 
         @SerializedName("author")
-        var author: String = ""
+        var author: String? = ""
 
         @SerializedName("foreignLanguage")
-        var foreignLanguage: Boolean = false
+        var foreignLanguage: Boolean? = false
 
         @SerializedName("date")
-        var date: String = ""
+        var date: String? = ""
 
         @SerializedName("languageCode")
-        var languageCode: String = ""
+        var languageCode: String? = ""
 
         @SerializedName("traveler_type")
-        var travelerType: String = ""
+        var travelerType: String? = ""
 
         @SerializedName("reviewerName")
-        var reviewerName: String = ""
+        var reviewerName: String? = ""
 
         @SerializedName("reviewerCountry")
-        var reviewerCountry: String = ""
+        var reviewerCountry: String? = ""
 
         override fun toString(): String {
             return "NetworkReview(id=$id, rating=$rating, title='$title', message='$message', author='$author', foreignLanguage=$foreignLanguage, date='$date', languageCode='$languageCode', travelerType='$travelerType', reviewerName='$reviewerName', reviewerCountry='$reviewerCountry')"
@@ -70,18 +70,7 @@ class NetworkReviews {
         }
 
         override fun hashCode(): Int {
-            var result = id.hashCode()
-            result = 31 * result + rating.hashCode()
-            result = 31 * result + title.hashCode()
-            result = 31 * result + message.hashCode()
-            result = 31 * result + author.hashCode()
-            result = 31 * result + foreignLanguage.hashCode()
-            result = 31 * result + date.hashCode()
-            result = 31 * result + languageCode.hashCode()
-            result = 31 * result + travelerType.hashCode()
-            result = 31 * result + reviewerName.hashCode()
-            result = 31 * result + reviewerCountry.hashCode()
-            return result
+            return 0
         }
 
 
@@ -104,9 +93,7 @@ class NetworkReviews {
     }
 
     override fun hashCode(): Int {
-        var result = totalReviewsComments
-        result = 31 * result + reviews.hashCode()
-        return result
+        return 0
     }
 
 
