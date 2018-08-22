@@ -1,7 +1,5 @@
 package fbonfadelli.it.touradvisor.reviews.provider
 
-import fbonfadelli.it.touradvisor.reviews.ReviewProviderCallback
-
 private const val numberOfResult = 10
 private const val page = 0
 

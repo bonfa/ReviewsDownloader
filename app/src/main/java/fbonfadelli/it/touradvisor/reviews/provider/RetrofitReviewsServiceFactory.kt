@@ -1,22 +1,20 @@
 package fbonfadelli.it.touradvisor.reviews.provider
 
 import com.google.gson.GsonBuilder
-
-import java.util.concurrent.TimeUnit
-
 import fbonfadelli.it.touradvisor.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.util.concurrent.TimeUnit
 
 class RetrofitReviewsServiceFactory {
 
     private val restAdapterWithConverter: Retrofit
         get() = Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .client(createHttpClient(createInterceptor()))
+                .client(createHttpClient(createLogInterceptor()))
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
                 .build()
@@ -31,10 +29,19 @@ class RetrofitReviewsServiceFactory {
                 .writeTimeout(TIMEOUT_WRITE.toLong(), TimeUnit.SECONDS)
                 .connectTimeout(TIMEOUT_CONNECT.toLong(), TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
+                .addInterceptor { chain ->
+                    val original = chain.request()
+
+                    val requestBuilder = original.newBuilder()
+                            .header("User-Agent", "GetYourGuide")
+
+                    val request = requestBuilder.build()
+                    chain.proceed(request)
+                }
                 .build()
     }
 
-    private fun createInterceptor(): HttpLoggingInterceptor {
+    private fun createLogInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = if (BuildConfig.DEBUG)
             HttpLoggingInterceptor.Level.BODY

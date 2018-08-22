@@ -1,7 +1,7 @@
 TODO
 
-[] Proguard
-[] extract resources from layout
+[-] Proguard
+[x] extract resources from layout
 [x] empty view
 [x] title not present
 [x] title 2 lines
