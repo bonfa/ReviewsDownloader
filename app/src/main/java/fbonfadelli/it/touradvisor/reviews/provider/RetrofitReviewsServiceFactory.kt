@@ -51,10 +51,9 @@ class RetrofitReviewsServiceFactory {
     }
 
     companion object {
-
-        private val TIMEOUT_READ = 15
-        private val TIMEOUT_WRITE = 15
-        private val TIMEOUT_CONNECT = 30
-        private val BASE_URL = "https://www.getyourguide.com/"
+        private const val TIMEOUT_READ = 15
+        private const val TIMEOUT_WRITE = 15
+        private const val TIMEOUT_CONNECT = 30
+        private const val BASE_URL = "https://www.getyourguide.com/"
     }
 }
