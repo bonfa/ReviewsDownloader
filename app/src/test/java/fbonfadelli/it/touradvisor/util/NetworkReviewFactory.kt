@@ -24,7 +24,7 @@ fun someNetworkReviews(): NetworkReviews {
 private fun createNetworkReview(): NetworkReviews.NetworkReview {
     val review = NetworkReviews.NetworkReview()
     review.id = 3452235
-    review.rating = 5.0
+    review.rating = "5.0"
     review.title = "A Great Insight into the evolution of the Airport"
     review.message = "This was a very educational tour of Templehoff. We saw lots of different sides of the airport. The tour guide was very knowledgable and helpful. We then walked out onto the Runway. A great place to be"
     review.author = "Stefan – United Kingdom"
@@ -40,7 +40,7 @@ private fun createNetworkReview(): NetworkReviews.NetworkReview {
 fun createAnotherNetworkReview(): NetworkReviews.NetworkReview {
     val review = NetworkReviews.NetworkReview()
     review.id = 3425187
-    review.rating = 5.0
+    review.rating = "5.0"
     review.title = ""
     review.message = "Tres bon guide, plein de joie de vivre et très dynamique. A faire!!"
     review.author = "Cecile – France"

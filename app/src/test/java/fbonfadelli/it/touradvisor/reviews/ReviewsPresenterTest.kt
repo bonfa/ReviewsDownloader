@@ -1,10 +1,11 @@
 package fbonfadelli.it.touradvisor.reviews
 
 import fbonfadelli.it.touradvisor.reviews.provider.ReviewProvider
+import fbonfadelli.it.touradvisor.reviews.provider.ReviewProvider.*
+import fbonfadelli.it.touradvisor.reviews.provider.ReviewProvider.Strategy.*
 import fbonfadelli.it.touradvisor.util.aReview
 import org.junit.Test
-import org.mockito.Mockito.mock
-import org.mockito.Mockito.verify
+import org.mockito.Mockito.*
 
 class ReviewsPresenterTest {
 
@@ -18,7 +19,7 @@ class ReviewsPresenterTest {
         reviewsPresenter.onResume()
 
         verify(reviewsView).showLoading()
-        verify(reviewProvider).getReviews(this.reviewStrategy, reviewsPresenter)
+        verify(reviewProvider).getReviews(RATING_STRATEGY_DESC, reviewsPresenter)
     }
 
     @Test
@@ -29,6 +30,7 @@ class ReviewsPresenterTest {
 
         verify(reviewsView).showReviews(reviews)
         verify(reviewsView).hideLoading()
+        verify(reviewsView).showStrategy(RATING_STRATEGY_DESC)
     }
 
     @Test
@@ -46,4 +48,18 @@ class ReviewsPresenterTest {
         verify(reviewsView).hideLoading()
         verify(reviewProvider).stop()
     }
+
+    @Test
+    fun toggleRatingStrategy() {
+        reviewsPresenter.toogleRatingSearch()
+
+        verify(reviewsView).showLoading()
+        verify(reviewProvider).getReviews(RATING_STRATEGY_ASC, reviewsPresenter)
+
+        reviewsPresenter.toogleRatingSearch()
+
+        verify(reviewsView, times(2)).showLoading()
+        verify(reviewProvider).getReviews(RATING_STRATEGY_DESC, reviewsPresenter)
+    }
+
 }
