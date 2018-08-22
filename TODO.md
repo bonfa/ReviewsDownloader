@@ -1,5 +1,4 @@
-TODO
-
+TODOs
 [-] Proguard
 [x] extract resources from layout
 [x] empty view
