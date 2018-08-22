@@ -23,7 +23,7 @@ class ReviewsAdapter : RecyclerView.Adapter<ReviewViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
-        val review = reviews.get(position)
+        val review = reviews[position]
 
         holder.titleTextView.text = review.title
         holder.messageTextView.text = review.message

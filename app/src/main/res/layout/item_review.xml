@@ -39,9 +39,9 @@
         android:paddingEnd="4dp"
         android:paddingStart="4dp"
         android:text="@string/separator"
+        android:textColor="@color/textColor"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/textColor"
         app:layout_constraintBaseline_toBaselineOf="@id/userNameTextView"
         app:layout_constraintStart_toEndOf="@id/userNameTextView"/>
 
@@ -49,9 +49,9 @@
         android:id="@+id/countryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/textColor"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/textColor"
         app:layout_constraintBaseline_toBaselineOf="@id/userNameTextView"
         app:layout_constraintStart_toEndOf="@id/nameCountrySeparatorTextView"
         tools:text="USA"/>
@@ -80,27 +80,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rating_background"
-        android:paddingStart="6dp"
-        android:paddingEnd="6dp"
-        android:paddingTop="2dp"
         android:paddingBottom="2dp"
+        android:paddingEnd="6dp"
+        android:paddingStart="6dp"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintBaseline_toBaselineOf="@id/titleTextView"
         tools:text="5.0"/>
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="0dp"
-        android:layout_height="22dp"
+        android:layout_height="wrap_content"
+        android:paddingEnd="8dp"
+        android:paddingTop="2dp"
         android:textColor="@color/textColor"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/ratingTextView"
         app:layout_constraintEnd_toStartOf="@+id/ratingTextView"
         app:layout_constraintStart_toStartOf="parent"
-        android:paddingEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
         tools:text="A Great Insight into the evolution of the Airport"/>
 
 
@@ -109,7 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        app:layout_constraintTop_toBottomOf="@id/ratingTextView"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
         tools:text="This was a very educational tour of Templehoff. We saw lots of different sides of the airport. The tour guide was very knowledgable and helpful. We then walked out onto the Runway. A great place to be"
         />
 
