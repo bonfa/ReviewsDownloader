@@ -1,5 +1,7 @@
 package fbonfadelli.it.touradvisor.reviews
 
+import android.content.Context
+import android.support.v4.content.ContextCompat.getColor
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +11,7 @@ import fbonfadelli.it.touradvisor.R
 import fbonfadelli.it.touradvisor.reviews.provider.Review
 import fbonfadelli.it.touradvisor.reviews.provider.Reviews
 
-class ReviewsAdapter : RecyclerView.Adapter<ReviewViewHolder>() {
+class ReviewsAdapter(private val context: Context) : RecyclerView.Adapter<ReviewViewHolder>() {
 
     private val reviews: MutableList<Review> = mutableListOf()
 
@@ -25,13 +27,23 @@ class ReviewsAdapter : RecyclerView.Adapter<ReviewViewHolder>() {
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
         val review = reviews[position]
 
-        holder.titleTextView.text = review.title
+        setTitleTextView(holder, review)
         holder.messageTextView.text = review.message
         holder.dateTextView.text = review.date
         holder.userNameTextView.text = review.reviewerName
         holder.countryTextView.text = review.reviewerCountry
         holder.ratingTextView.text = review.rating
         holder.typeTextView.text = review.travelerType
+    }
+
+    private fun setTitleTextView(holder: ReviewViewHolder, review: Review) {
+        val isTitleEmpty = review.title.trim().isEmpty()
+        holder.titleTextView.text = if (isTitleEmpty) context.getString(R.string.not_available) else review.title
+        holder.titleTextView.setTextColor(getColor(context, if (isTitleEmpty) {
+            R.color.gray
+        } else {
+            R.color.textColor
+        }))
     }
 
     fun setReviews(reviews: Reviews) {
@@ -41,7 +53,7 @@ class ReviewsAdapter : RecyclerView.Adapter<ReviewViewHolder>() {
     }
 }
 
-class ReviewViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class ReviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val titleTextView: TextView = view.findViewById(R.id.titleTextView)
     val typeTextView: TextView = view.findViewById(R.id.typeTextView)
     val messageTextView: TextView = view.findViewById(R.id.messageTextView)

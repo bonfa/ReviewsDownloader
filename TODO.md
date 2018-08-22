@@ -3,7 +3,7 @@ TODO
 [] Proguard
 [] extract resources from layout
 [] empty view
-[] titolo non presente
+[x] titolo non presente
 [x] titolo non va su due righe
 [x] manca la classe di utente
 

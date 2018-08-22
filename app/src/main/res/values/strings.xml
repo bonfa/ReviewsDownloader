@@ -4,4 +4,5 @@
     <string name="reviews">Reviews</string>
     <string name="user_picture">User picture</string>
     <string name="separator">\-</string>
+    <string name="not_available">Not available</string>
 </resources>

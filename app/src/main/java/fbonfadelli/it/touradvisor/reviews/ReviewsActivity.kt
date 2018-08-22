@@ -42,7 +42,7 @@ class ReviewsActivity : AppCompatActivity(), ReviewsView {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.setLayoutManager(LinearLayoutManager(this))
-        adapter = ReviewsAdapter()
+        adapter = ReviewsAdapter(this)
         recyclerView.setAdapter(adapter)
         adapter.notifyDataSetChanged()
     }
