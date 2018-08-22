@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
+import android.widget.LinearLayout
 import fbonfadelli.it.touradvisor.R
 import fbonfadelli.it.touradvisor.reviews.provider.*
+import kotlinx.android.synthetic.main.activity_reviews.*
 
 class ReviewsActivity : AppCompatActivity(), ReviewsView {
     private val LOG: String = "ReviewsActivity"
@@ -35,15 +38,17 @@ class ReviewsActivity : AppCompatActivity(), ReviewsView {
     }
 
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var emptyView: LinearLayout
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ReviewsAdapter
 
     private fun bindView() {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.setLayoutManager(LinearLayoutManager(this))
+        emptyView = findViewById(R.id.emptyView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = ReviewsAdapter(this)
-        recyclerView.setAdapter(adapter)
+        recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
     }
 
@@ -68,10 +73,13 @@ class ReviewsActivity : AppCompatActivity(), ReviewsView {
     }
 
     override fun showReviews(reviews: Reviews) {
+        emptyView.visibility = View.GONE
+        recyclerView.visibility = View.VISIBLE
         adapter.setReviews(reviews)
     }
 
     override fun showNoReviews() {
-        Log.w(LOG, "No Reviews available")
+        emptyView.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
     }
 }
