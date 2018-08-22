@@ -6,4 +6,6 @@
     <string name="separator">\-</string>
     <string name="not_available">Title not available</string>
     <string name="no_reviews_available">No reviews available</string>
+    <string name="rating">Rating</string>
+    <string name="Date">Date</string>
 </resources>

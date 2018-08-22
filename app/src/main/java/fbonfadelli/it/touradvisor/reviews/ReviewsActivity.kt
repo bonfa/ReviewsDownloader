@@ -27,7 +27,6 @@ class ReviewsActivity : AppCompatActivity(), ReviewsView {
         bindView()
     }
 
-
     private fun initPresenter() {
         reviewsPresenter = ReviewsPresenter(
                 this,
