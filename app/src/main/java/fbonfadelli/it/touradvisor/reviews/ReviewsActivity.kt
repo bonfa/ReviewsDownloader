@@ -5,12 +5,10 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import fbonfadelli.it.touradvisor.R
 import fbonfadelli.it.touradvisor.reviews.provider.*
-import kotlinx.android.synthetic.main.activity_reviews.*
 
 class ReviewsActivity : AppCompatActivity(), ReviewsView {
     private val LOG: String = "ReviewsActivity"
